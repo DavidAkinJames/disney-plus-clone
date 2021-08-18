@@ -21,47 +21,51 @@ function Detail() {
          if (doc.exists) {
              //save the movie data
             setMovie(doc.data());
-
          } else {
            //redirects to homepage
          }
        })
-    }, [id])
+    }, [])
    
     return (
         <Container>
-            <Background>
-                 <img src={movie.backgroundImg} alt=""/> 
-            </Background>
-            <ImageTitle>
-                <img src={movie.titleImg} alt="" />
-            </ImageTitle>
-            <Controls>
-                <PlayButton>
-                    <img src="/images/play-icon-black.png" alt="" />
-                    <span>PLAY</span>
-                </PlayButton>
-                <TrailerButton>s
-                    <img src="/images/play-icon-white.png" alt=""/>
-                    <span>Trailer</span>
-                </TrailerButton>
-                <AddButton>
-                    <span>+</span>
-                </AddButton>
-                <GroupWatchButton>
-                    <img src="/images/group-icon.png" alt=""/>
-                </GroupWatchButton>
-            </Controls>
-            <SubTitle>
-               {movie.subTitle}
-            </SubTitle>
-            <Description>
-               {movie.description}
-            </Description>
+          {movie && (
+         <>
+              <Background>
+              <img src={movie.backgroundImg} alt=""/> 
+          </Background>
+        <ImageTitle>
+            <img src={movie.titleImg} alt="" />
+        </ImageTitle>
+        <Controls>
+            <PlayButton>
+                <img src="/images/play-icon-black.png" alt="" />
+                <span>PLAY</span>
+            </PlayButton>
+            <TrailerButton>s
+                <img src="/images/play-icon-white.png" alt=""/>
+                <span>Trailer</span>
+            </TrailerButton>
+            <AddButton>
+                <span>+</span>
+            </AddButton>
+            <GroupWatchButton>
+                <img src="/images/group-icon.png" alt=""/>
+            </GroupWatchButton>
+        </Controls>
+        <SubTitle>
+           {movie.subTitle}
+        </SubTitle>
+        <Description>
+           {movie.description}
+        </Description>
+        </>
+          )}
+            
         </Container>
     )
 }
-export default Detail
+export default Detail;
 
 
 const Container = styled.div`
